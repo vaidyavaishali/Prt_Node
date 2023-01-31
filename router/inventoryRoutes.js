@@ -59,9 +59,9 @@ inventoryRouter.post("/createInventory",async(req,res)=>{
 });
 inventoryRouter.put('/itemName/availableQuantity/:id', async (req, res) => {
     try {
-        const inventary = await inventaryData.findOne({ id: req.params._id })
-        const update = await inventaryData.updateOne({
-           avail_quantity: req.body.avail_quantity
+        const inventary = await inventoryTable.findOne({ id: req.params._id })
+        const update = await inventoryTable.updateOne({
+            available_quantity: req.body.available_quantity
         })
         res.status(200).json({
             status: "Success",
@@ -75,6 +75,5 @@ inventoryRouter.put('/itemName/availableQuantity/:id', async (req, res) => {
         })
     }
 })
-
 
 module.exports = inventoryRouter;
